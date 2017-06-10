@@ -6,6 +6,12 @@ SSL is supported by disabling the certificate verifcation.
 * Python 2.7.6+ or Python 3.0 +
 
 # Installation
+Install stable version
+```bash
+pip install easyrest
+```
+
+or install develop version
 ```bash
 python setup.py install
 ```

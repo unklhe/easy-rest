@@ -4,7 +4,8 @@ This is a wrapper of python urllib2 to quickly access Rest API with simply comma
 
 # Requirements
 * Python 2.7.6+
-
+or
+Python 3.0 +
 
 # Installation
 ```bash

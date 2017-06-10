@@ -4,7 +4,14 @@
 It supports POST, GET, PUT, DELETE and PATCH, works for Python 2.7.6+.
 """
 import logging
-import urllib2
+try:
+    # For Python 3.0 and later
+    from urllib import request as url_lib
+    from urllib.error import HTTPError
+except ImportError:
+    # Fall back to Python 2's urllib2
+    import urllib2 as url_lib
+    from urllib2 import HTTPError
 import ssl
 import sys
 
@@ -21,10 +28,10 @@ except AttributeError:
     pass
 if __ssl_context:
     def openurl(req):
-        return urllib2.urlopen(req, context=__ssl_context)
+        return url_lib.urlopen(req, context=__ssl_context)
 else:
     def openurl(req):
-        return urllib2.urlopen(req)
+        return url_lib.urlopen(req)
 
 
 def __method__(url, data, **headers):
@@ -34,13 +41,12 @@ def __method__(url, data, **headers):
         if type(data) is not str:
             data = str(data)
         __logger.debug(str(data))
-    req = urllib2.Request(url, data, headers)
+    req = url_lib.Request(url, data, headers)
     req.get_method = lambda: method
     try:
-        print req
         resp = openurl(req)
         return resp
-    except urllib2.HTTPError, e:
+    except HTTPError as e:
         return e
 
 def post(url, data, **kwargs):

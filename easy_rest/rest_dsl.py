@@ -1,5 +1,4 @@
 import rest
-import urllib2
 import base64
 import re
 import json
@@ -73,11 +72,16 @@ class Response:
         msg += self._raw_data
         return msg
 
-class ResponseError(Response, urllib2.HTTPError):
+class ResponseError(Response, rest.HTTPError):
 
-    def __init__(self, urllib2_httperror):
-        urllib2.HTTPError.__init__(self, urllib2_httperror.url, urllib2_httperror.code, urllib2_httperror.msg, urllib2_httperror.hdrs, urllib2_httperror.fp)
-        Response.__init__(self, urllib2_httperror)
+    def __init__(self, httperror):
+        rest.HTTPError.__init__(self, 
+                                httperror.url, 
+                                httperror.code,
+                                httperror.msg,
+                                httperror.hdrs,
+                                httperror.fp)
+        Response.__init__(self, httperror)
 
 
 class Connection:

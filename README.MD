@@ -25,7 +25,7 @@ from easy_rest import *
 resp = get("http://yourserver/url")
 print resp.read()
 
-get("http://yourserver/url", Authorization="dGVzdDp0ZXN0")
+get("http://yourserver/url", Authorization="basic dGVzdDp0ZXN0")
 
 post("http://yourserver/url", {"key": "value"})
 

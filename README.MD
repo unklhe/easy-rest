@@ -9,7 +9,7 @@ This is a wrapper of python urllib2 to quickly access Rest API with simply comma
 # Installation
 ```bash
 python setup.py install
-```bash
+```
 
 
 # Usage
@@ -24,7 +24,7 @@ get("http://yourserver/url", Authorization="dGVzdDp0ZXN0")
 
 post("http://yourserver/url", {"key": "value"})
 
-```python
+```
 
 ## advanced
 ```python
@@ -38,7 +38,7 @@ print resp.body
 client.post("/url/id", "a=b&c=d")
 
 client.delete("/url/id")
-```python
+```
 
 
 # License

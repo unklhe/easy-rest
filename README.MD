@@ -1,11 +1,9 @@
 # Easy Rest
-
-This is a wrapper of python urllib2 to quickly access Rest API with simply command/method.
+This is a wraping of python urllib2 to quickly access Rest API.
+SSL is supported by disabling the certificate verifcation.
 
 # Requirements
-* Python 2.7.6+
-or
-Python 3.0 +
+* Python 2.7.6+ or Python 3.0 +
 
 # Installation
 ```bash
@@ -14,7 +12,7 @@ python setup.py install
 
 
 # Usage
-## basic
+Try CRUD directely
 ```python
 from easy_rest import *
 
@@ -27,7 +25,7 @@ post("http://yourserver/url", {"key": "value"})
 
 ```
 
-## advanced
+Use a connection object
 ```python
 client = Connection("yourserver", "/",
                 auth_type="basic",

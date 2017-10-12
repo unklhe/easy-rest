@@ -38,8 +38,8 @@ def __method__(url, data, **headers):
     method = sys._getframe(1).f_code.co_name.upper()
     __logger.debug("%s %s" % (method, url))
     if data:
-        if type(data) is not str:
-            data = str(data)
+        if type(data) not in [str, unicode]:
+            data = json.dumps(data)
         __logger.debug(str(data))
     req = url_lib.Request(url, data, headers)
     req.get_method = lambda: method

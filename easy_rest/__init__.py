@@ -14,6 +14,6 @@
 
 """Easy to access Rest API
 """
-from rest import *
-from rest_dsl import *
+from .rest import *
+from .rest_dsl import *
 

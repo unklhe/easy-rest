@@ -1,4 +1,4 @@
-import rest
+from . import rest
 import base64
 import re
 import json

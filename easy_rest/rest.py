@@ -14,6 +14,7 @@ except ImportError:
     from urllib2 import HTTPError
 import ssl
 import sys
+import json
 
 __logger = logging.getLogger("easy_rest")
 

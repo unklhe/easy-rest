@@ -8,6 +8,7 @@ try:
     # For Python 3.0 and later
     from urllib import request as url_lib
     from urllib.error import HTTPError
+    unicode = str
 except ImportError:
     # Fall back to Python 2's urllib2
     import urllib2 as url_lib
